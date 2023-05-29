@@ -18,6 +18,7 @@ I'll update this file according to the current stage I am in.
   
   <details>
   <summary>Links</summary>
+    
   1. https://learnxinyminutes.com/docs/javascript/
   
   2. https://learn.javascript.ru/
