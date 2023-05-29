@@ -73,7 +73,7 @@ const createReviewRating = (...args) => {
  * @param {{service,price,value,quality}}} rating 
  * @returns 
  */
-const Review = (author = "anonymous ", date = new Date(), comment = "", rating = createReviewRating(0, -1)) => {
+const Review = (author = "anonymous ", date = new Date(), comment = "", rating = createReviewRating()) => {
     return {
         id: getNewId(false),
         author,
@@ -237,7 +237,7 @@ tmp.addReview(tmpReview2);
 console.log(tmp.getMyProperty("reviews"))
 tmp.deleteReview(tmpReview.id);
 console.log(tmp.getMyProperty("reviews"))
-tmp.addReview(Review(undefined, undefined, undefined, createReviewRating(5, 5, 5, 5)));
+tmp.addReview(Review(undefined, undefined, undefined, createReviewRating(0, -1, 5, 5)));
 tmp.addReview(Review(undefined, undefined, undefined, createReviewRating(5, 5, 5, 5)));
 tmp.addReview(Review(undefined, undefined, undefined, createReviewRating(5, 5, 5, 5)));
 tmp.addReview(Review(undefined, undefined, undefined, createReviewRating(5, 5, 5, 5)));
