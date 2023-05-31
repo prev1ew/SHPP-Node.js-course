@@ -61,3 +61,18 @@ I'll update this file according to the current stage I am in.
   - sort (sorts products according by second parameter) (it should support sorting by id/name/price)
 </details>
   </details>
+
+### 1.2 QUIZ (1)
+<details>
+  <summary>Details</summary>
+  The meaning of this part is to "confirm" the knowledge. I won't publish all the questions I had to answer, only several of them, so you can "guess" what kind of questions there were:
+  
+  - what is "var"?
+  
+  - what the difference between "const" and "let" ?
+  
+  - what is "__proto__" ? 
+  
+  - what of "string, char, boolean, float, double, number, object, array, function, int" JS has?
+  
+</details>
