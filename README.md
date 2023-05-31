@@ -82,6 +82,13 @@ I'll update this file according to the current stage I am in.
 </details>
 
 ### 1.3 Reqular expressions
+
+<details>
+    
+    
+  <summary>Details</summary>
+  
+  
 1. Learn:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 - search on YouTube if you do not feel comfortable enough to do the practice part
@@ -189,3 +196,4 @@ Examples:
   
   `C00l` = invalid
 </details>
+  </details>
