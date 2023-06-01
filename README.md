@@ -81,7 +81,7 @@ I'll update this file according to the current stage I am in.
   
 </details>
 
-### 1.3 Reqular expressions
+### 1.3 Regular expressions
 
 <details>
     
