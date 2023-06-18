@@ -128,3 +128,15 @@ async function func2() {
 // func2().then((res) => { console.log(res) });
 
 // 6
+
+async function fun1() {
+    return await getIP();
+}
+
+async function fun2(callbackFunc: Function) {
+    const resFromFunc1 = await fun1();
+    callbackFunc(resFromFunc1)
+    return "fun2:Done"
+}
+
+// fun2(testCallback).then((res) => console.log(res))
