@@ -71,4 +71,44 @@ async function receiveThreeNamesThenOnly() {
     return res;
 }
 
-receiveThreeNamesThenOnly().then((res) => console.log(res))
+// 4
+const getUserInfoURL = "https://random-data-api.com/api/users/random_user"
+// 4.1
+function getWomanName(userName: string = "", attemptCount: number = 0) {
+    //let attemptCount = 0;
+    //let userName = "";
+    if (userName !== "") {
+        return userName;
+    }
+
+    if (userName === "") {
+        return fetch(getUserInfoURL).then((res) => res.json()).then((res) => {
+            // console.log(`${res.gender.toLowerCase()}, ${res.gender.toLowerCase() === "female"}`)
+            if (res.gender.toLowerCase() === "female") {
+                const currRes = `${res.first_name} ${res.last_name}... attempt count: ${attemptCount}`
+                console.log(currRes)
+                return currRes
+            } else {
+                getWomanName("", attemptCount + 1)
+            }
+        });
+    }
+}
+
+// 4.2 
+async function getWomanNameAsyncAwait() {
+    let attemptCount = 1;
+    let returnValue = "";
+
+    while (returnValue === "") {
+        const currRes = await fetch(getUserInfoURL).then((res) => res.json());
+        if (currRes.gender.toLowerCase() === "female") {
+            returnValue = `${currRes.first_name} ${currRes.last_name}... attempt count: ${attemptCount}`
+            // console.log(returnValue)
+        }
+        attemptCount++;
+    }
+    return returnValue;
+}
+
+getWomanNameAsyncAwait().then((res) => console.log(res))
