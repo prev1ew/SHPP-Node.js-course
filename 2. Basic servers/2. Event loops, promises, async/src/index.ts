@@ -111,4 +111,20 @@ async function getWomanNameAsyncAwait() {
     return returnValue;
 }
 
-getWomanNameAsyncAwait().then((res) => console.log(res))
+// 5
+function testCallback(...args: string[]) {
+    console.log(`test callback with params: ${args}`)
+}
+async function func1(callback: Function) {
+    const currentIp = await getIP();
+    callback(currentIp)
+    return "Done"
+}
+
+async function func2() {
+    return func1(testCallback)
+}
+
+// func2().then((res) => { console.log(res) });
+
+// 6
