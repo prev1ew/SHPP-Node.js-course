@@ -1,28 +1,25 @@
-/*
-In the node.js intro tutorial (http://nodejs.org/), they show a basic tcp 
-server, but for some reason omit a client connecting to it.  I added an 
-example at the bottom.
-Save the following server in example.js:
-*/
+var net = require('net');
 
-const net = require('net');
-const port = 7070;
-const host = '127.0.0.1';
-
-const server = net.createServer();
-server.listen(port, host, () => {
-    console.log('TCP Server is running on port ' + port + '.');
-});
-
-let sockets: any[] = [];
-server.on('connection', function (sock: any) {
-    console.log('CONNECTED: ' + sock.remoteAddress + ':' + sock.remotePort);
-    sockets.push(sock);
-    sock.on('data', function (data: any) {
-        console.log('DATA ' + sock.remoteAddress + ': ' + data);
-        // Write the data back to all the connected, the client will receive it as data from the server
-        sockets.forEach(function (sock, index, array) {
-            sock.write(sock.remoteAddress + ':' + sock.remotePort + " said " + data + '\n');
-        });
+var server = net.createServer(function (socket: any) {
+    //socket.write('Echo server\r\n');
+    socket.pipe(socket);
+    socket.on('data', function (data: any) {
+        console.log('Received: ' + data);
+        socket.write('got: ' + data); // kill client after server's response
     });
+    socket.on("close", function (socket: any) {
+        console.log("" + new Date() + "con closed")
+    })
+    socket.on("drop", function (socket: any) {
+        console.log("" + new Date() + "con dropped")
+    })
+    socket.on("error", function (error: any) {
+        console.log("con error ocurred" + error)
+    })
 });
+
+server.listen(1337, '127.0.0.1');
+
+server.on("close", function (socket: any) {
+    console.log("con closed")
+})
