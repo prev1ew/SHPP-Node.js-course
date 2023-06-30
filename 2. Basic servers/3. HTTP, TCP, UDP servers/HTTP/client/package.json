@@ -9,5 +9,12 @@
     "start": "node dist/index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.3.1"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "querystring": "^0.2.1"
+  }
 }
